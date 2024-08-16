@@ -1,0 +1,114 @@
+A. Umum :
+1. Pengertian :  metode DOM di JavaScript yang digunakan untuk mengaks
+----------------------------
+2. Metode ini mengembalikan koleksi elemen yang memiliki kelas yang ditentukan.
+----------------------------
+Sintaks : document.getElementsByClassName(className);
+//penjelasan : 
+className: 
+1. Parameter ini adalah string yang mewakili nama kelas yang ingin Anda akses. 
+----------------------------
+2.Jika elemen memiliki kelas dengan nama yang sama, mereka akan dimasukkan dalam koleksi yang dikembalikan.
+
+B. Cara Kerja :
+1. Pencarian Elemen:
+----------------------------
+1a. getElementsByClassName mencari elemen-elemen yang memiliki kelas yang sesuai 
+----------------------------
+2a. dengan nama kelas yang diberikan.
+Metode ini mengembalikan koleksi elemen dalam bentuk HTMLCollection.
+----------------------------
+2. Koleksi HTML:
+----------------------------
+Koleksi yang dikembalikan adalah live collection, artinya jika dokumen berubah setelah koleksi diambil, koleksi ini akan secara otomatis diperbarui untuk mencerminkan perubahan tersebut.
+----------------------------
+
+
+C. Contoh Penggunaan : 
+1. Mengakses semua elemen dengan kelas tertentu.
+    <p class="highlight">Paragraph 1</p>
+    <p class="highlight">Paragraph 2</p>
+    <p class="normal">Paragraph 3</p>
+    <button onclick="showHighlighted()">Show Highlighted Paragraphs</button>
+
+    <script>
+        function showHighlighted() {
+            // Mengakses semua elemen dengan kelas "highlight"
+            var highlights = document.getElementsByClassName('highlight');
+            
+            for (var i = 0; i < highlights.length; i++) {
+                console.log(highlights[i].textContent);
+            }
+        }
+    </script>
+----------------------------
+//penjelasan
+1. document.getElementsByClassName('highlight') mengembalikan koleksi HTMLCollection dari elemen dengan kelas "highlight".
+2. Fungsi showHighlighted mencetak teks dari semua elemen dengan kelas "highlight" ke konsol.
+----------------------------
+3. Mengubah gaya semua elmeen dengan kelas tertentu
+    <p class="highlight">Paragraph 1</p>
+    <p class="highlight">Paragraph 2</p>
+    <p class="normal">Paragraph 3</p>
+    <button onclick="styleHighlights()">Style Highlights</button>
+
+    <script>
+        function styleHighlights() {
+            // Mengakses semua elemen dengan kelas "highlight"
+            var highlights = document.getElementsByClassName('highlight');
+            
+            for (var i = 0; i < highlights.length; i++) {
+                highlights[i].style.color = 'red';
+                highlights[i].style.fontSize = '18px';
+            }
+        }
+    </script>
+//penjelasan :
+1. for loop digunakan untuk iterasi melalui koleksi HTMLCollection dan mengubah gaya teks dari elemen dengan kelas "highlight".
+----------------------------
+
+D. Keuntungan menggunakan `getElementsByClassName` :
+1. Mudah Digunakan: Berguna untuk memilih semua elemen dengan nama kelas tertentu tanpa memerlukan selektor kompleks.
+----------------------------
+2. Koleksi Langsung: Mengembalikan koleksi elemen yang langsung dapat diakses dan dimanipulasi.
+----------------------------
+3. Live Collection: Koleksi diperbarui secara otomatis jika dokumen berubah.
+
+E. Kelemahan dan Alternatif :
+1. Koleksi Live: Koleksi yang dikembalikan adalah live collection, yang mungkin tidak diinginkan dalam beberapa kasus, terutama jika dokumen dimanipulasi secara dinamis.
+----------------------------
+2. Selektor yang Lebih Spesifik: Untuk memilih elemen dengan kriteria yang lebih kompleks, metode lain seperti querySelectorAll mungkin lebih tepat.
+
+Alternatif:
+1. querySelectorAll: Untuk memilih elemen berdasarkan selector CSS, termasuk kelas, ID, atau atribut, gunakan querySelectorAll, yang mengembalikan NodeList statis.
+//var highlights = document.querySelectorAll('.highlight');
+
+F. Kesimpulan
+1. Metode: document.getElementsByClassName(className)
+----------------------------
+2. Fungsi: Mengakses elemen-elemen dalam dokumen HTML berdasarkan nama kelas.
+----------------------------
+3. Kembalian: Mengembalikan koleksi node HTMLCollection yang merupakan live collection.
+----------------------------
+4. Kelebihan: Mudah digunakan untuk mengakses elemen berdasarkan nama kelas; koleksi otomatis diperbarui.
+----------------------------
+5. Kekurangan: Koleksi live dapat menyebabkan masalah jika dokumen sering dimanipulasi; alternatif seperti querySelectorAll bisa digunakan untuk seleksi yang lebih kompleks.
+----------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
