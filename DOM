@@ -1,0 +1,100 @@
+//DOM, atau Document Object Model, adalah antarmuka pemrograman yang menyediakan struktur untuk dokumen HTML dan XML. 
+
+DOM memungkinkan kita untuk mengakses, mengubah, dan mengelola elemen dan struktur dokumen dengan menggunakan JavaScript. 
+
+Contoh struktur DOM :
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+  <body>
+    <h1>Hello, World!</h1>
+    <p>This is a paragraph.</p>
+  </body>
+</html>
+
+Struktur DOM :
+  document
+  |
+  html
+  |-- head
+  |   |-- title
+  |
+  body
+    |-- h1
+    |-- p
+
+A. Mengakses dan mengubah DOM dengan javascript :
+1. Mengakses Elemen : getElementById : Mengakses elemen dengan id tertentu.
+------------------
+2. getElementsByClassName: Mengakses elemen dengan kelas tertentu.
+------------------
+3. getElementsByTagName: Mengakses elemen berdasarkan nama tag.
+------------------
+4. querySelector: Mengakses elemen menggunakan CSS selector.
+------------------
+5. querySelectorAll: Mengakses semua elemen yang cocok dengan selector.
+------------------
+
+B. Mengubah Elemen :
+1. Mengubah Teks : const container = document.getElementById('container');
+                   container.innerHTML = '<p>New Content</p>';
+------------------
+2. Mengubah HTML : const container = document.getElementById('container');
+                   container.innerHTML = '<p>New Content</p>';
+------------------
+3. Mengubah Atribut : const link = document.querySelector('a');
+                    link.setAttribute('href', 'https://www.example.com');
+------------------
+
+C. Menambahkan dan menghapus elemen :
+1. menambahkan Elemen : const newDiv = document.createElement('div');
+                        newDiv.textContent = 'Hello, World!';
+                        document.body.appendChild(newDiv);
+------------------
+2. Menghapus Elemen : const elementToRemove =               
+                      document.getElementById('removeMe');
+                  elementToRemove.parentNode.removeChild(elementToRemove);
+------------------
+
+D. Event Handling : 
+1. Menambahkan Event Listener : 
+const button =       
+document.querySelector('button');
+button.addEventListener('click', function() {
+  alert('Button clicked!');
+});
+------------------
+2. Event Object : 
+button.addEventListener('click', function(event) {
+  console.log(event.target); // Target elemen yang diklik
+});
+
+E. Manipulasi DOM dengan JavaScript : 
+Manipulasi DOM adalah proses mengubah struktur, gaya, atau kontent halaman web setelah halaman tersebut dimuat. Ini memungkinkan halaman menjadi dinamis dan responsif terhadapt input pengguna atau data baru.
+
+F. Kesimpulan :
+1. DOM (Document Object Model) adalah representasi struktur dokumen HTML atau XML yang memungkinkan pemrograman untuk mengakses dan memanipulasi halaman web.
+-----------------
+Node Types: Ada berbagai jenis node seperti elemen, teks, dan atribut.
+-----------------
+Akses dan Manipulasi: JavaScript dapat digunakan untuk mengakses elemen,
+mengubah konten, menambahkan atau menghapus elemen, dan menangani event.
+-----------------
+Event Handling: Memungkinkan interaksi pengguna dengan halaman web.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
