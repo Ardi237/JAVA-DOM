@@ -1,0 +1,151 @@
+A. Umum :
+1. pengertian : 
+getElementsByTagName adalah metode DOM yang digunakan untuk mengakses elemen-elemen dalam dokumen HTML berdasarkan nama tag mereka.
+--------------------
+2. Berbeda dengan getElementById, yang mengembalikan elemen tunggal, getElementsByTagName mengembalikan koleksi node dari elemen-elemen yang memiliki nama tag tertentu.
+--------------------
+3. Sintaks : document.getElementsByTagName(tagName);
+--------------------
+1. tagName: Parameter ini adalah string yang mewakili nama tag elemen yang ingin Anda akses. 
+2. Nama tag biasanya ditulis dalam huruf kecil (meskipun HTML tidak case-sensitive).
+--------------------
+
+B. Cara Kerja :
+1. Perncarian Elemen :
+a. getElementsByTagName mencari elemen-elemen dengan nama tag yang diberikan di dalam dokumen.
+b. Metode ini mengembalikan koleksi elemen dalam bentuk HTMLCollection, yang merupakan objek seperti array.
+--------------------
+2. Koleksi HTML :
+a. Koleksi yang dikembalikan adalah live collection, artinya jika dokumen berubah setelah koleksi diambil, koleksi ini akan secara otomatis diperbarui untuk mencerminkan perubahan tersebut.
+--------------------
+
+C. Contoh Penggunaan :
+1. Mengakses semua elemen dengan name tag tertentu.
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <div>Some text in a div</div>
+    <button onclick="showParagraphs()">Show Paragraphs</button>
+
+    <script>
+        function showParagraphs() {
+            // Mengakses semua elemen <p> di dalam dokumen
+            var paragraphs = document.getElementsByTagName('p');
+            
+            for (var i = 0; i < paragraphs.length; i++) {
+                console.log(paragraphs[i].textContent);
+            }
+        }
+    </script>
+----------------------------------------
+//penjelasan :
+1. Elemen <p> diakses menggunakan document.getElementsByTagName('p').
+2. Fungsi showParagraphs mencetak teks dari semua elemen <p> di dokumen ke konsol.
+----------------------------------------
+2. Mengakses Elemen dengan Nama Tag di Dalam Elemen Tertentu:
+    <div id="container">
+        <p>First paragraph in container</p>
+        <p>Second paragraph in container</p>
+    </div>
+    <button onclick="showContainerParagraphs()">Show Container Paragraphs</button>
+
+    <script>
+        function showContainerParagraphs() {
+            var container = document.getElementById('container');
+            // Mengakses semua elemen <p> di dalam elemen dengan id "container"
+            var paragraphs = container.getElementsByTagName('p');
+            
+            for (var i = 0; i < paragraphs.length; i++) {
+                console.log(paragraphs[i].textContent);
+            }
+        }
+    </script>
+----------------------------------------
+//penjelasan :
+1. container.getElementsByTagName('p') mengakses semua elemen <p> di dalam elemen dengan id container.
+--------------------
+
+D. Keuntungan menggunakan `getElementsBtTagName` :
+1. Mudah Digunakan: Berguna untuk memilih elemen-elemen dengan nama tag tertentu tanpa memerlukan selektor kompleks.
+--------------------
+2. Koleksi Langsung: Mengembalikan koleksi elemen yang langsung dapat diakses dan dimanipulasi.
+--------------------
+3. Live Collection: Koleksi diperbarui secara otomatis jika dokumen berubah.
+--------------------
+
+E. Kelemahan dan Alternatif :
+1. Koleksi Live: Koleksi yang dikembalikan adalah live collection, yang mungkin tidak diinginkan dalam beberapa kasus, terutama jika dokumen dimanipulasi secara dinamis.
+--------------------
+2. Selektor yang Lebih Spesifik: Untuk memilih elemen dengan kriteria yang lebih kompleks, metode lain seperti querySelectorAll mungkin lebih tepat.
+ALternatif :
+--------------------
+1. querySelectorAll: Untuk memilih elemen berdasarkan selector CSS, termasuk tag, kelas, ID, atau atribut, gunakan querySelectorAll, yang mengembalikan NodeList statis.
+//var paragraphs = document.querySelectorAll('p');
+--------------------
+
+F. Kesimpulan :
+1. Metode: document.getElementsByTagName(tagName)
+--------------------
+2. Fungsi: Mengakses elemen-elemen dalam dokumen HTML berdasarkan nama tag.
+--------------------
+3. Kembalian: Mengembalikan koleksi node HTMLCollection yang merupakan live collection.
+--------------------
+4. Kelebihan: Mudah digunakan untuk mengakses elemen berdasarkan nama tag; koleksi otomatis diperbarui.
+--------------------
+5. Kekurangan: Koleksi live dapat menyebabkan masalah jika dokumen sering dimanipulasi; alternatif seperti querySelectorAll bisa digunakan untuk seleksi yang lebih kompleks.
+--------------------
+
+##contoh penggunaan getElementsByTagName dengan for...of :
+contoh 1:Mengakses dan menampilkan teks dari elemen <p>
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+    <p>Third paragraph</p>
+    <button onclick="displayParagraphs()">Display Paragraphs</button>
+
+    <script>
+        function displayParagraphs() {
+            // Mengakses semua elemen <p> di dalam dokumen
+            const paragraphs = document.getElementsByTagName('p');
+
+            // Menggunakan for...of untuk iterasi melalui elemen
+            for (const paragraph of paragraphs) {
+                console.log(paragraph.textContent);
+            }
+        }
+    </script>
+//penjelasan :
+1. document.getElementsByTagName('p') mengembalikan koleksi HTMLCollection dari semua elemen <p>.
+--------------------
+2. for...of digunakan untuk iterasi melalui setiap elemen dalam koleksi tersebut.
+--------------------
+3. Teks dari setiap elemen <p> dicetak ke konsol.
+--------------------
+
+## Mengubah gaya semua elemen :
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p>Paragraph 3</p>
+    <button onclick="styleParagraphs()">Style Paragraphs</button>
+
+    <script>
+        function styleParagraphs() {
+            // Mengakses semua elemen <p> di dalam dokumen
+            const paragraphs = document.getElementsByTagName('p');
+
+            // Menggunakan for...of untuk iterasi dan mengubah gaya
+            for (const paragraph of paragraphs) {
+                paragraph.style.color = 'blue';
+                paragraph.style.fontSize = '20px';
+            }
+        }
+    </script>
+--------------------
+//Penjelasan :
+1. for...of digunakan untuk iterasi melalui setiap elemen dalam koleksi HTMLCollection dari elemen <p>.
+--------------------
+2. Gaya teks dari setiap elemen diubah menjadi warna biru dan ukuran font menjadi 20px
+--------------------
+
+G. Kesimpulan #2 :
+1. for...of adalah cara yang elegan dan modern untuk iterasi melalui koleksi HTMLCollection yang dikembalikan oleh getElementsByTagName.
+2. Iterable: HTMLCollection dapat diiterasi menggunakan for...of karena sifatnya yang iterable.
+3. Praktis: Menggunakan for...of memudahkan proses iterasi dan operasi pada elemen-elemen dalam koleksi.
