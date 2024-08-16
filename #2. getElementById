@@ -1,0 +1,82 @@
+A. Umum :
+1.  metode DOM (Document Object Model) di JavaScript yang digunakan untuk mengakses elemen HTML dalam dokumen berdasarkan atribut id-nya. 
+-----------------
+2. sintaks dasar:
+document.getElementById(id);
+//id : Parameter ini adalah string yang mewakiliki nilai dari atribut id dari elemen yang ingin anda akses
+-----------------
+
+B. Cara kerja :
+1. Pencarian Elemen:
+a. getElementById mencari elemen dengan id yang diberikan di dalam dokumen.
+b. Jika ditemukan, metode ini mengembalikan referensi ke elemen tersebut.
+c. Jika tidak ditemukan, metode ini mengembalikan null.
+-----------------
+2. Keunikan ID :
+a. ID yang diberikan harus unik di dalam halaman HTML. Hanya boleh ada satu elemen dengan id yang sama di halaman tersebut.
+b. Ini memastikan bahwa getElementById selalu mengembalikan elemen yang tepat (atau null jika tidak ditemukan).
+-----------------
+
+C. Contoh Penggunaan :
+Ca. Mengakses dan mengubah teks
+    <h1 id="main-heading">Hello, World!</h1>
+    <button onclick="changeHeading()">Change Heading</button>
+
+    <script>
+        function changeHeading() {
+            // Mengakses elemen dengan id "main-heading"
+            var heading = document.getElementById('main-heading');
+            // Mengubah teks elemen
+            heading.textContent = 'New Heading Text';
+        }
+    </script>
+-----------------
+//penjelasan : 
+1. Elemen <h1> dengan id="main-heading" diakses dengan document.getElementById('main-heading').
+2. Fungsi changeHeading mengubah teks elemen tersebut ketika tombol diklik.
+-----------------
+Cb. Mengakses dan mengubah teks :
+    <p id="text-paragraph">This is a paragraph.</p>
+    <button onclick="changeStyle()">Change Style</button>
+
+    <script>
+        function changeStyle() {
+            var paragraph = document.getElementById('text-paragraph');
+            // Mengubah gaya elemen
+            paragraph.style.color = 'blue';
+            paragraph.style.fontSize = '20px';
+        }
+    </script>
+-----------------
+//penjelasan :
+1. Elemen <p> dengan id="text-paragraph" diakses dan gayanya diubah ketika tombol diklik.
+-----------------
+
+D. Keuntungan menggunakan getElementById :
+1. Cepat dan Efisien: getElementById adalah metode yang sangat cepat karena hanya mencari berdasarkan id yang unik.
+2. Sederhana: Sangat mudah digunakan untuk mengakses elemen yang spesifik dalam dokumen.
+
+E. Kesimpulan :
+1. Metode: document.getElementById(id)
+2. Fungsi: Mengakses elemen HTML berdasarkan atribut id-nya.
+3. Kembalian: Mengembalikan elemen dengan id yang sesuai atau null jika tidak ditemukan.
+4. Keunikan: id harus unik di seluruh dokumen HTML untuk memastikan pengembalian elemen yang tepat.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
