@@ -1,0 +1,139 @@
+A. Umum : 
+1. Manipulasi atribut di JavaScript mengacu pada proses mengakses, mengubah, menambah, atau menghapus atribut dari elemen HTML dalam dokumen.
+2. Atribut adalah properti yang memberikan informasi tambahan tentang elemen HTML. Misalnya, atribut href pada elemen <a> atau src pada elemen <img>.
+-------------------------------------------------------
+
+
+B. Metode getAttribute() :
+1. Fungsi : Mengambil nilai dari atribut tertentu dari elemen
+-------------------------------------------------------
+2. Sintaks dasar : element.getAttribute(attributeName);
+//penjelasan : parameter = `attributeName : Nama atribut yang ingin diambil nilainya.`
+-------------------------------------------------------
+3. Contoh : 
+<a id="myLink" href="https://example.com">Example</a>
+
+<script>
+    const link = document.getElementById('myLink');
+    const hrefValue = link.getAttribute('href');
+    console.log(hrefValue); // Output: https://example.com
+</script>
+-------------------------------------------------------
+
+
+C. Metode setAttribute() :
+1. Fungsi: Mengatur atau memperbarui nilai dari atribut tertentu pada elemen.
+-------------------------------------------------------
+2. Sintaks dasar : element.setAttribute(attributeName, value);
+//penjelasan :
+- `attributeName` : Nama atribut yang ingin diatur.
+- `value` : Nilai baru untuk atribut tersebut.
+-------------------------------------------------------
+3. Contoh : 
+<a id="myLink" href="https://example.com">Example</a>
+
+<script>
+    const link = document.getElementById('myLink');
+    link.setAttribute('href', 'https://newexample.com');
+    console.log(link.getAttribute('href')); // Output: https://newexample.com
+</script>
+-------------------------------------------------------
+
+
+D. RemoveAttribute() : 
+1. Fungsi : Menghapus atribut tertentu dari elemen.
+-------------------------------------------------------
+2. Sintaks dasar : element.removeAttribute(attributeName);
+//penjelasan : `attributeName` : Nama atribut yang ingin dihapus.
+-------------------------------------------------------
+3. Contoh : 
+<a id="myLink" href="https://example.com" target="_blank">Example</a>
+
+<script>
+    const link = document.getElementById('myLink');
+    link.removeAttribute('target');
+    console.log(link.getAttribute('target')); // Output: null (atau undefined, tergantung browser)
+</script>
+-------------------------------------------------------
+
+
+E. Perbandingan dengan properti DOM : 
+1. getAttribute() dan setAttribute() : 
+1a. Berfungsi pada atribut HTML  yang bersifat umum dan terdaftar dalam spesifikasi HTML.
+1b. Cocok untuk mengakses atau mengubah atribut yang tidak selalu terwakili sebagai properti DOM.
+-------------------------------------------------------
+2. Properti DOM (seperti `elemen.href` atau `element.src`) :
+2a. Mengakses atau mengubah nilai atribut yang sering digunakan secara langsung sebagai properti objek DOM.
+2b. Biasanya lebih cepat untuk properti umum karena langsung diakses melalui objek DOM.
+-------------------------------------------------------
+
+
+F. Contoh Kasus :
+1. Mengambil dan mengatur Atribut :
+    <img id="myImage" src="image1.jpg" alt="Image 1">
+    <button onclick="changeImage()">Change Image</button>
+
+    <script>
+        function changeImage() {
+            const img = document.getElementById('myImage');
+            // Mengambil nilai src
+            const currentSrc = img.getAttribute('src');
+            console.log('Current src:', currentSrc);
+
+            // Mengatur nilai src ke gambar lain
+            img.setAttribute('src', 'image2.jpg');
+            console.log('New src:', img.getAttribute('src'));
+        }
+    </script>
+-------------------------------------------------------
+2. Menghapus Atribut :
+ <button id="myButton" onclick="alert('Clicked!')" class="btn">Click Me</button>
+    <button onclick="removeAttribute()">Remove Attribute</button>
+
+    <script>
+        function removeAttribute() {
+            const button = document.getElementById('myButton');
+            button.removeAttribute('onclick');
+            // Mencoba klik tombol yang tidak lagi memiliki atribut onclick
+            // button.click(); // Ini tidak akan menampilkan alert
+        }
+    </script>
+-------------------------------------------------------
+
+
+G. Kesimpulan :
+1. getAttribute(): Untuk mengambil nilai atribut HTML.
+-------------------------------------------------------
+2. setAttribute(): Untuk mengatur atau memperbarui nilai atribut HTML.
+-------------------------------------------------------
+3. removeAttribute(): Untuk menghapus atribut HTML.
+-------------------------------------------------------
+4. Properti DOM: Untuk akses langsung ke atribut yang sering digunakan sebagai properti objek DOM, seringkali lebih efisien dibandingkan dengan metode atribut.
+-------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
