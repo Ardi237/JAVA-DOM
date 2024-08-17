@@ -1,0 +1,99 @@
+A. Umum :
+1. `querySelector` dan `querySelectorAll` adalah dua metode DOM di javaScript yang digunakan untuk memilih elemen HTML berdasarkan selector CSS. 
+-------------------------------
+2. Meskipun keduanya mirip, ada beberapa perbedaan penting di antara keduanya. 
+-------------------------------
+
+
+B. `querySelector` :
+1. Fungsi : Mengembalikan elemen pertama yang cocok dengan selector CSS yang diberikan.
+-------------------------------
+2. Pengembalian : Mengembalikan satu elemen (atau `null` jika tidak ada elemen yang cocok).
+-------------------------------
+3. Kinerja : Cukup efisien untuk menemukan elemen tunggal.
+-------------------------------
+4. Sintaks : document.querySelector(selector);
+-------------------------------
+5. Contoh : 
+5a. const firstParagraph = document.querySelector('p'); // Mengambil <p> pertama
+-------------------------------
+5b. const highlighted = document.querySelector('.highlight'); // Mengambil elemen pertama dengan kelas "highlight"
+-------------------------------
+5c. const specificItem = document.querySelector('#container .item'); // Mengambil elemen dengan kelas "item" di dalam elemen dengan ID "container"
+-------------------------------
+
+
+C. `querySelectorAll` :
+1. Fungsi : Mengembalikan semua elemen yang cocok dengan selector CSS yang diberikan.
+-------------------------------
+2. Pengembalian: Mengembalikan `NodeList` (daftar node) yang merupakan kumpulan dari elemen-elemen yang cocok. `NodeList` ini bersifat statis, artinya tidak akan diperbarui secara otomatis jika dokumen berubah.
+-------------------------------
+3. Kinerja : Dapat digunakan untuk menangani banyak elemen sekaligus.
+-------------------------------
+4. Sintaks : document.querySelectorAll(selector);
+-------------------------------
+5. Contoh :
+5a. const allParagraphs = document.querySelectorAll('p'); // Mengambil semua <p> dalam dokumen
+-------------------------------
+5b. const highlightedItems = document.querySelectorAll('.highlight'); // Mengambil semua elemen dengan kelas "highlight"
+-------------------------------
+5c. const itemsInContainer = document.querySelectorAll('#container .item'); // Mengambil semua elemen dengan kelas "item" di dalam elemen dengan ID "container"
+-------------------------------
+
+
+D. Perbadingan :
+1. Jumlah Elemen yang ditemukan :
+1a. querySelector : Hanya mengembalikan elemen pertama yang cocok.
+1b. querySelectorAll : Mengembalikan semua elemen yang cocok.
+-------------------------------
+2. Tipe pengembalian :
+2a. querySelector: Mengembalikan satu elemen (atau null).
+2b. querySelectorAll: Mengembalikan NodeList yang berisi semua elemen yang cocok.
+-------------------------------
+3. Penggunaan :
+3a. querySelector: Berguna ketika Anda hanya perlu mengakses satu elemen yang pertama kali cocok dengan selector.
+3b. querySelectorAll: Berguna ketika Anda perlu bekerja dengan beberapa elemen yang cocok dengan selector.
+-------------------------------
+4. Statik vs Live Collection :
+4a. querySelector dan querySelectorAll mengembalikan koleksi statis, artinya jika Anda menambahkan atau menghapus elemen di dokumen setelah mendapatkan koleksi, koleksi tersebut tidak akan diperbarui.
+-------------------------------
+
+
+E. Contoh Kode :
+1. Menggunakan `querySelector` :
+    <p class="text">First paragraph</p>
+    <p class="text">Second paragraph</p>
+    <button onclick="showFirstParagraph()">Show First Paragraph</button>
+
+    <script>
+        function showFirstParagraph() {
+            // Mengakses elemen <p> pertama yang ditemukan
+            const firstParagraph = document.querySelector('.text');
+            console.log(firstParagraph.textContent);
+        }
+    </script>
+-------------------------------
+2. Menggunakan `querySelectorAll` :
+    <p class="text">First paragraph</p>
+    <p class="text">Second paragraph</p>
+    <button onclick="showAllParagraphs()">Show All Paragraphs</button>
+
+    <script>
+        function showAllParagraphs() {
+            // Mengakses semua elemen <p> dengan kelas "text"
+            const paragraphs = document.querySelectorAll('.text');
+            paragraphs.forEach(p => console.log(p.textContent));
+        }
+    </script>
+-------------------------------
+
+
+F. Kesimpulan :
+1. querySelector: Digunakan untuk memilih elemen pertama yang cocok dengan selector.
+-------------------------------
+2. querySelectorAll: Digunakan untuk memilih semua elemen yang cocok dengan selector.
+-------------------------------
+3. Pengembalian: querySelector mengembalikan elemen tunggal; querySelectorAll mengembalikan NodeList dari elemen-elemen yang cocok.
+-------------------------------
+
+
