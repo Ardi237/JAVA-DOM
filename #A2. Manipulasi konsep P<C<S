@@ -1,0 +1,143 @@
+A. Umum : 
+1. Di dalam DOM (Document Object Model), elemen HTML diatur dalam struktur hierarkis. 
+-------------------------------------------------
+2. Konsep Parent, Child, dan Sibling adalah bagian dari struktur ini yang memungkinkan kita untuk menavigasi dan memanipulasi elemen-elemen dalam halaman web.
+-------------------------------------------------
+
+
+B. Element Parent :
+1. Parent (Induk) adalah elemen yang membungkus atau menjadi elemen induk dari elemen lain di dalam DOM. 
+-------------------------------------------------
+2. Setiap elemen di dalam dokumen HTML bisa memiliki satu elemen induk, kecuali elemen root seperti <html> yang tidak memiliki induk.
+-------------------------------------------------
+3. Metode untuk mengakses Parent :
+3a. `parentNode` : Mengembalikan elemen yang dipilih.
+3b. `parentElement` : Mengembalikan elemen induk dari elemen yang dipilih, atau `null` jika elemen induk adalah bukan elemen (misalnya, node teks).
+-------------------------------------------------
+4. Contoh :  
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parent Example</title>
+</head>
+<body>
+    <div id="parent">
+        <p id="child">Hello World</p>
+    </div>
+    <script>
+        const child = document.getElementById('child');
+        const parent = child.parentNode; // atau child.parentElement
+        console.log(parent.id); // Output: 'parent'
+    </script>
+</body>
+</html>
+-------------------------------------------------
+
+
+C. Element Child :
+1. Child (Anak) : Elemen yang berada di dalam elemen lain. Sebuah elemen bisa memiliki beberapa elemen anak.
+-------------------------------------------------
+2. Metode untuk Mengakses Child : 
+2a. Children : Mengembalikan koleksi `HTMLCollection` dari elemen anak lansung (hanya elemen-elemen, tidak termasuk node teks atau komentar).
+2b. ChildNodes : Mengembalikan koleksi `NodeLIst` dari semua node anak termasuk elemen, teks, dan komentar
+-------------------------------------------------
+3. Contoh :
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Child Example</title>
+</head>
+<body>
+    <div id="parent">
+        <p id="child1">Child 1</p>
+        <p id="child2">Child 2</p>
+    </div>
+    <script>
+        const parent = document.getElementById('parent');
+        const children = parent.children; // Mengakses elemen anak
+        for (let child of children) {
+            console.log(child.id); // Output: 'child1', 'child2'
+        }
+    </script>
+</body>
+</html>
+-------------------------------------------------
+
+
+D. Element SIbling :
+1. Sibling (Saudara) adalah elemen yang berada pada level yang sama di dalam DOM. Elemen saudara memiliki elemen induk yang sama tetapi tidak saling terhubung secara langsung.
+-------------------------------------------------
+2. Metode untuk Mengakses Sibling :
+2a. extElementSibling: Mengembalikan elemen saudara yang berada setelah elemen yang dipilih.
+2b. previousElementSibling: Mengembalikan elemen saudara yang berada sebelum elemen yang dipilih.
+-------------------------------------------------
+3. Contoh : 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sibling Example</title>
+</head>
+<body>
+    <div id="container">
+        <p id="sibling1">Sibling 1</p>
+        <p id="sibling2">Sibling 2</p>
+    </div>
+    <script>
+        const sibling1 = document.getElementById('sibling1');
+        const sibling2 = sibling1.nextElementSibling; // Mengakses elemen saudara setelah sibling1
+        console.log(sibling2.id); // Output: 'sibling2'
+    </script>
+</body>
+</html>
+-------------------------------------------------
+
+
+E. Manipulasi dan akses Elemen :
+1. Mengakses Elemen Induk, Anak, dan Saudara : Gunakan metode seperti `parentNode`, `children`, `nextElementSibling`, dan `previousElementSibling` untuk mendapatkan refrensi ke elemen-elemen yang terkait.
+-------------------------------------------------
+2. Menambahkan atau menghapus elemen anak : 
+2a. Menambahkan : Gunakan metode seperti `appendChild()`, `insertBefore()`, dan 'replaceChild()'.
+2b. Menghapus: Gunakan metode seperti `removeChild()`.
+-------------------------------------------------
+
+
+E. Contoh Penambahan dan penghapusan :
+    <div id="parent">
+        <p id="child1">Child 1</p>
+    </div>
+    <script>
+        const parent = document.getElementById('parent');
+        const newChild = document.createElement('p');
+        newChild.textContent = 'New Child';
+        
+        // Menambahkan elemen anak
+        parent.appendChild(newChild);
+        
+        // Menghapus elemen anak
+        const child1 = document.getElementById('child1');
+        parent.removeChild(child1);
+    </script>
+-------------------------------------------------
+
+
+F. Kesimpulan :
+1. Parent: Elemen yang membungkus elemen lain. Dapat diakses menggunakan parentNode atau parentElement.
+-------------------------------------------------
+2. Child: Elemen yang berada di dalam elemen lain. Dapat diakses menggunakan children atau childNodes.
+-------------------------------------------------
+3. Sibling: Elemen yang berada pada level yang sama. Dapat diakses menggunakan nextElementSibling dan previousElementSibling.
+-------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
