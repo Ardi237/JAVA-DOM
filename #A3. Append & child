@@ -1,0 +1,79 @@
+A. Umum :
+1. Di dalam DOM, baik `appendChild` maupun `append` adalah metode yang digunakan untuk menambahkan elemen baru ke dalam DOM.
+-------------------------------------------------------
+2. tetapi keduanya memiliki perbedaan dalam cara mereka bekerja dan apa yang mereka dukung.
+-------------------------------------------------------
+
+
+B. Metode `appendChild` : 
+1. `appendChild` adalah metode yang digunakan untuk menambahkan sebuah node anak 
+ke elemen tertentu sebagai anak terakhir.
+-------------------------------------------------------
+2. Sintaks dasar: parentElement.appendChild(childNode);
+* `parentElement` : Elemen induk yang akan menerima node baru.
+* `childNode` : Node baru yang akan ditambahkan sebagai anak.
+-------------------------------------------------------
+3. Contoh :
+ <div id="parent">
+        <p id="existingChild">Existing Child</p>
+    </div>
+    <script>
+        const parent = document.getElementById('parent');
+        const newChild = document.createElement('p');
+        newChild.textContent = 'New Child';
+        
+        parent.appendChild(newChild); // Menambahkan elemen 'New Child' sebagai anak terakhir
+    </script>
+-------------------------------------------------------
+
+
+
+C. Metode `append` :
+1. `append` adalah metode yang lebih fleksibel yang diperkenalkan dalam spesifikasi DOM Level 4. Selain dapat menambahkan node ke elemen, `append` juga mendukung penambahan string sebagai HTML dan elemen DOM.
+-------------------------------------------------------
+2. Sintaks dasar : parentElemenr.append(node1, node2, ...);
+2a. `parentElement` : Elemen induk yang akan menerima node atau string baru.
+2b. `node1, node2, ...` : Node atau string yang akan ditambahkan. Metode ini bisa menerima lebih dari 1 argumen.
+-------------------------------------------------------
+ <div id="parent">
+        <p id="existingChild">Existing Child</p>
+    </div>
+    <script>
+        const parent = document.getElementById('parent');
+        
+        // Menambahkan elemen baru dan HTML string
+        parent.append('Hello ', '<strong>World</strong>', document.createElement('p'));
+        
+        // Menambahkan elemen sebagai anak terakhir
+        const newChild = document.createElement('p');
+        newChild.textContent = 'New Child';
+        parent.append(newChild);
+    </script>
+-------------------------------------------------------
+
+
+
+D. Perbedaan Utama : 
+1. Tipe Data yang didukung : 
+1a. `appendChild` : Hanya mendukung node sebagai argumen.
+1b. `append` : Mendukung baik node maupun string (HTML).
+-------------------------------------------------------
+2. Pengembalian :
+2a. `appendChild` : Mengembalikan node yang ditambahkan.
+2b. `append` : Tidak mengembalikan nilai.
+-------------------------------------------------------
+3. Fleksibilitas : 
+3a. `append`: Lebih fleksibel karena mendukung penambahan beberapa node sekaligus dan HTML string.
+3b. `appendChild` : Terbatas pada penambahan satu node pada satu waktu.
+-------------------------------------------------------
+
+
+
+E. Kesimpulan : 
+1. `appendChild` : Metode yang lebih lama dan lebih spesifik, terutama digunakan untuk menambahkan node sebagai anak terakhir elemen. 
+2. `append` adalah metode yang lebih baru dan lebih fleksibel, memungkinkan penambahan beberapa node atau string HTML sekaligus.
+
+
+
+
+
