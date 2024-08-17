@@ -1,0 +1,160 @@
+A. Umum :
+1. InnerText, innerHTML, dan textContent adalah tiga properti DOM yang digunakan untuk mengakses atau mengubah konten teks dan HTML dari elemen dalam dokumen HTML. 
+------------------------------------------
+
+
+B. innerText :
+1. FUngsi Mengambil atau mengatur konten teks yang terlihat dari elemen HTML, dengab memperhitungkan gaya CSS seperti `display: none` dan `visibility: hidden`.
+------------------------------------------
+2. Perlakuan HTML : Tidak memproses HTML di dalam elemen; hanya mengambil teks yang terlihat.
+------------------------------------------
+3. White Space : Menghilangkan white space berlebih dan baris baru yang tidak terlihat.
+------------------------------------------
+4. Dukungan Browser : Lebih lambat dalam beberapa kasus karena harus karena harus menghitung gaya yang diterapkan.
+------------------------------------------
+5. Contoh : 
+<div id="example">
+    <p>Hello <span>World</span></p>
+</div>
+
+<script>
+    const div = document.getElementById('example');
+    console.log(div.innerText); // Output: Hello World
+</script>
+------------------------------------------
+
+
+C. innerHTML :
+1. Fungsi : Mengambil atau mengatur konten HTML dari elemen, termasuk elemen HTML anak.
+------------------------------------------
+2. Perlakuann HTML : Mengembalikan HTML sebagai string, memungkinkan anda untuk menyisipkan atau memodifikasi HTML dalam elemen.
+------------------------------------------
+3. White Space : Mempertahankan white space dan baris baru dalam HTML.
+------------------------------------------
+4. Dukungan Browser : Tidak memproses gaya, tetapi memproses HTML dan dapat membuat elemen baru.
+------------------------------------------
+5. Contoh :
+<div id="example">
+    <p>Hello <span>World</span></p>
+</div>
+
+<script>
+    const div = document.getElementById('example');
+    console.log(div.innerHTML); // Output: <p>Hello <span>World</span></p>
+</script>
+------------------------------------------
+
+
+D. textContent :
+1. Fungsi : Mengambil atau mengatur semua konten teks dari elemen, termasuk  teks dari elemen anak, tetapi tanpa memproses HTML di dalamnya.
+------------------------------------------
+2. Perlakuam HTML : Mengabaikan HTML di dalam elemen; hanya mengambil teks mentah.
+------------------------------------------
+3. White Space : Mempertahankan white space dan baris baru.
+------------------------------------------
+4. Dukungan Browser : Lebih cepat dibandingkan `innerText` karena tidak memperhitunngkan gaya.
+------------------------------------------
+5. Contoh : 
+<div id="example">
+    <p>Hello <span>World</span></p>
+</div>
+
+<script>
+    const div = document.getElementById('example');
+    console.log(div.textContent); // Output: Hello World
+</script>
+------------------------------------------
+
+
+E. Perbedaan Utama :
+1. HTML vs Teks :
+1a. `innerText` : Mengembalikan teks yang terlihat, memperhitungkan gaya CSS, dan tidak memproses HTML.
+1b. `innerHTML` : Mengembalikan HTML lengkap sebagai string, termasuk elemen anak.
+1c. `textContent` : Mengembalikkan semua teks dalam elemen tanpa memproses HTML, tidak memperhitungkan gaya.
+------------------------------------------
+2. Pengaruh Gaya CSS : 
+2a. `innerText` : Menghormati gaya seperti `display: none` dan `visibility: hidden`.
+2b. `innerHTML` : Tidak memproses gaya; mengembalikan HTML mentah.
+2c. `textContent`: Tidak memproses gaya, hanya teks mentah.
+------------------------------------------
+3. White Space dan Baris baru:
+3a. `innerText` : Menghilangkan white space berlebih dan baris baru yang tidak terlihat.
+3b. `innerHTML` : Mempertahankan white space dan baris baru dalam HTML.
+3c. `textContent` : Mempertahankan white space dan baris baru dalam teks.
+------------------------------------------
+
+
+F. Contoh Penggunaan :
+1. Menggunakan `innetText` :
+<div id="example">
+    <p>Hello <span style="display: none;">Hidden</span> World</p>
+</div>
+
+<script>
+    const div = document.getElementById('example');
+    console.log(div.innerText); // Output: Hello World (Hidden teks tidak terlihat)
+</script>
+------------------------------------------
+2. Menggunakan `innetHTML` : 
+<div id="example">
+    <p>Hello <span style="display: none;">Hidden</span> World</p>
+</div>
+
+<script>
+    const div = document.getElementById('example');
+    console.log(div.innerHTML); // Output: <p>Hello <span style="display: none;">Hidden</span> World</p>
+</script>
+------------------------------------------
+3. Menggunakan `textContent` :
+<div id="example">
+    <p>Hello <span style="display: none;">Hidden</span> World</p>
+</div>
+
+<script>
+    const div = document.getElementById('example');
+    console.log(div.textContent); // Output: Hello Hidden World (Hidden teks terlihat)
+</script>
+------------------------------------------
+
+
+G. Kesimpulan :
+1. `innerText` : Cocok untuk mengambil teks yang terlihat dari elemen, memperhitungkan gaya dan tidak memproses HTML.
+------------------------------------------
+2. `innerHTML`  :Cocok untuk mengakses atau mengubah HTML di dalam elemen, termasuk elemen anak.
+------------------------------------------
+3. `textContent` : Cocok untuk mengambil teks mentah tanpa memproses HTML, lebib cepat dibandingkan `innerText` dan mempertahankan white space dan baris baru.
+------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
