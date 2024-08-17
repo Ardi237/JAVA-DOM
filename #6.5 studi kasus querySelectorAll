@@ -1,0 +1,50 @@
+//contoh kasus di mana kita menggunakan querySelectorAll untuk memilih semua elemen <a> di dalam dokumen dan kemudian menggunakan for...of untuk mengambil nilai atribut href dari setiap elemen tersebut.
+
+--------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extract Hrefs Example</title>
+</head>
+<body>
+    <a href="https://example.com/page1">Page 1</a>
+    <a href="https://example.com/page2">Page 2</a>
+    <a href="https://example.com/page3">Page 3</a>
+    <button onclick="extractHrefs()">Get Hrefs</button>
+
+    <script>
+        function extractHrefs() {
+            // Mengakses semua elemen <a> dalam dokumen
+            const links = document.querySelectorAll('a');
+            
+            // Menggunakan for...of untuk iterasi melalui koleksi
+            for (const link of links) {
+                // Mengambil nilai atribut href dari setiap elemen
+                console.log(link.href);
+            }
+        }
+    </script>
+</body>
+</html>
+--------------------------------------------------------------------------
+//penjelasan : 
+1. HTML : Dokumen HTML memiliki beberapa elemen <a> dengan atribut `href` yang berbeda.
+2. JavaScript :
+2a. document.querySelectorAll('a') memilih semua elemen <a> dalam dokumen dan mengembalikan NodeList dari elemen-elemen tersebut.
+2b. for...of digunakan untuk iterasi melalui NodeList. Pada setiap iterasi, link mewakili satu elemen <a>.
+2c. link.href mengakses nilai dari atribut href elemen <a> dan mencetaknya ke konsol.
+---------------------------------------------------------------------------
+Output :
+- https://example.com/page1
+- https://example.com/page2
+- https://example.com/page3
+---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
