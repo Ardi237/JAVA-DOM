@@ -1,0 +1,165 @@
+A. Umum : 
+1. Styling pada objek DOM (Document Object Model) melibatkan pengaturan dan perubahan gaya elemen HTML melalui JavaScript. 
+-----------------------------------------------------
+2. Kita dapat menggunakan JavaScript untuk memanipulasi CSS secara dinamis, baik dengan cara langsung melalui properti DOM atau dengna mengubah kelas CSS elemen.
+-----------------------------------------------------
+
+
+B. Menggunakkan properti `style` : 
+1. Setiap elemen DOM memiliki properti `style` yang memungkinkan anda untuk mengakses dan memanipulasi gaya inline elemen tersebut.
+2. Contoh :
+ <div id="myDiv">Hello World</div>
+    <script>
+        const div = document.getElementById('myDiv');
+        
+        // Mengatur gaya langsung
+        div.style.color = 'blue';
+        div.style.backgroundColor = 'lightgray';
+        div.style.fontSize = '20px';
+        div.style.padding = '10px';
+        
+        // Menghapus gaya
+        div.style.backgroundColor = ''; // Menghapus gaya backgroundColor
+    </script>
+-----------------------------------------------------
+
+
+C. Sifat dari `style` :
+1. Inline Styles : Properti `style` mengatur gaya inline, yang akan menggantikan gata external atau internal CSS.
+-----------------------------------------------------
+2. CamelCase : Nama properti CSS diakses dalam format camelCase melalui `style`. Misalnya `background-color` menjadi `backgroundColor`.
+-----------------------------------------------------
+3. Kelebihan dan Kekurangan : 
+3a. Kelebihan : Memungkinkan perubahan gaya secara dinamis dan cepat.
+3b. Kekurangan : Menambah gaya inline langsung ke elemen, yang dapat membuat HTML dan JavaScript lebih rumit untuk dikelola.
+-----------------------------------------------------
+
+
+D. Menggunakan kelas CSS : 
+1. Alih-alih mengubah gaya inline secara langsung, kita dapat menambahkan, menghapus, atau mengganti kelas CSS pada elemen untuk memanfaatkan aturan gaya yang sudah didefinisikan dalam CSS.
+-----------------------------------------------------
+2. Contoh dasar :
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Styling with Classes</title>
+    <style>
+        .highlight {
+            color: red;
+            background-color: yellow;
+            font-weight: bold;
+        }
+        .normal {
+            color: black;
+            background-color: white;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv" class="normal">Hello World</div>
+    <button onclick="toggleHighlight()">Toggle Highlight</button>
+    
+    <script>
+        function toggleHighlight() {
+            const div = document.getElementById('myDiv');
+            // Mengganti kelas CSS
+            div.classList.toggle('highlight');
+        }
+    </script>
+</body>
+</html>
+-----------------------------------------------------
+
+
+E. Sifat dari kelas CSS :
+1. Penggunaan kelas : Menggunakan kelas CSS memungkinkan pemisahan antara HTML, CSS, dan JavaSCript, yang lebih terstruktur dan lebih mudah dikelola.
+-----------------------------------------------------
+2. Metode Kelas : `classList` menyediakan metode seperti `add()`,`remove()`,`toggle()`, dan `contains()` untuk memanipulasi kelas.
+-----------------------------------------------------
+3. CSS tertulis terpisah : Aturan gaya didefinisikan dalam file CSS terpisah atau tag `<style>`, memudahkan pemeliharaan dan pemberuan gaya.
+-----------------------------------------------------
+
+
+F. Menggunakan CSS Variables :
+1. CSS Variables (Custom Properties) memungkinkan penyimpanan nilai CSS dalam variabel yang dapat digunakan dalam aturan CSS.
+-----------------------------------------------------
+2. Contoh : 
+<head>
+    <title>CSS Variables</title>
+    <style>
+        :root {
+            --main-bg-color: lightblue;
+            --main-text-color: darkblue;
+        }
+        .styled {
+            background-color: var(--main-bg-color);
+            color: var(--main-text-color);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv" class="styled">Hello World</div>
+    <button onclick="changeColor()">Change Color</button>
+    
+    <script>
+        function changeColor() {
+            document.documentElement.style.setProperty('--main-bg-color', 'lightgreen');
+            document.documentElement.style.setProperty('--main-text-color', 'darkgreen');
+        }
+    </script>
+</body>
+-----------------------------------------------------
+
+
+G. Perbandingan dan kesimpulan :
+1. Inline Styles (`style`) : 
+1a. Kelebihan: Mudah dan cepat untuk perubahan gaya spesifik.
+1b. Kekurangan : Membuat HTML lebih berantakan dan sulit diatur dalam jangkan panjang.
+-----------------------------------------------------
+2. Kelas CSS : 
+2a. Kelebihan : Memisahkan gaya dari markup HTML, memudahkan pemeliharaan dan penggunaan kembali.
+2b. Kekurangan : Membutuhkan lebih banyak pengaturan awal dalam file CSS.
+-----------------------------------------------------
+3. CSS Variables :
+3a. Kelebihan: Memudahkan pengaturan tema atau gaya yang dapat diubah secara dinamis dengan JavaScript.
+3b. Kekurangan: Memerlukan dukungan browser modern untuk fitur CSS Variables.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
