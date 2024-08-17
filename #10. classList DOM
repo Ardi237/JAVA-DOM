@@ -1,0 +1,161 @@
+A. Umum :
+1. classList adalah properti DOM yang menyediakan antarmuka untuk mengelola kelas CSS dari elemen HTML. 
+---------------------------------------------------
+2. Ini menawarkan metode yang memudahkan penambahan, penghapusan, dan pengelolaan kelas CSS pada elemen.
+---------------------------------------------------
+
+
+B. Metode 'classList' :
+1. `add(className[,...])` :
+1a. Fungsi : Menambahkan satu atau lebih kelas ke elemen.
+1b. Contoh : 
+<div id="myDiv">Hello World</div>
+<script>
+    const div = document.getElementById('myDiv');
+    div.classList.add('highlight', 'bold');
+</script>
+---------------------------------------------------
+2. `remove(className[,...])` :
+2a. Fungsi : Menghapus satu atau lebih kelas dari elemen.
+2b. Sintaks dasar : element.classList.remove(`class`,`class2`).
+2c. Contoh : 
+<div id="myDiv" class="highlight bold">Hello World</div>
+<script>
+    const div = document.getElementById('myDiv');
+    div.classList.remove('bold');
+</script>
+---------------------------------------------------
+3. `toggle(className[, force)` : 
+3a. Fungsi : Menambahkan kelas jika tidak ada, atau menghapusnya jika sudah ada. Opsi `force` dapat digunakan untuk memaksa penambahan atau penghapusan kelas.
+3b. Sintaks dasar : element.classList.toggle('className', [force]);
+3c. Contoh :
+<div id="myDiv" class="highlight">Hello World</div>
+<script>
+    const div = document.getElementById('myDiv');
+    div.classList.toggle('highlight'); // Menghapus kelas 'highlight'
+    div.classList.toggle('highlight', true); // Menambahkan kelas 'highlight'
+</script>
+---------------------------------------------------
+4. contains(className) :
+4a. Fungsi : Mengecek apakah elemen memiliki kelas tertentu.
+4b. Sintaks : element.classList.contains(`className`);
+4c. Contoh :
+<div id="myDiv" class="highlight">Hello World</div>
+<script>
+    const div = document.getElementById('myDiv');
+    console.log(div.classList.contains('highlight')); // Output: true
+</script>
+---------------------------------------------------
+5. `item(index)` :
+5a. Fungsi : Mengambil nama kelas pada indeks tertentu dalam daftar kelas.
+5b. Sintaks : element.classList.item(index);
+5c. Contoh : 
+<div id="myDiv" class="highlight bold">Hello World</div>
+<script>
+    const div = document.getElementById('myDiv');
+    console.log(div.classList.item(1)); // Output: 'bold'
+</script>
+---------------------------------------------------
+6. `forEach(callback)` : 
+6a. Fungsi : Menjalankan fungsi callback pada setiap kelas dalam daftar kelas.
+6b. Sintaks : element.classList.forEach((className) => { ... });
+6c. Contoh : 
+<div id="myDiv" class="highlight bold">Hello World</div>
+<script>
+    const div = document.getElementById('myDiv');
+    div.classList.forEach((className) => {
+        console.log(className); // Output: 'highlight', 'bold'
+    });
+</script>
+---------------------------------------------------
+
+
+C. Contoh Kasus :
+1. Menambahkan dan menghapus class : 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ClassList Example</title>
+    <style>
+        .active {
+            color: green;
+        }
+        .inactive {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv" class="inactive">Hello World</div>
+    <button onclick="toggleClass()">Toggle Active</button>
+
+    <script>
+        function toggleClass() {
+            const div = document.getElementById('myDiv');
+            div.classList.toggle('active'); // Toggles 'active' class
+            div.classList.toggle('inactive'); // Toggles 'inactive' class
+        }
+    </script>
+</body>
+</html>
+---------------------------------------------------
+2. Menggunakan `contains` dan `forEach` :
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ClassList Example</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv" class="highlight bold">Hello World</div>
+    <button onclick="checkClasses()">Check Classes</button>
+
+    <script>
+        function checkClasses() {
+            const div = document.getElementById('myDiv');
+            if (div.classList.contains('highlight')) {
+                console.log('Highlight class is present');
+            }
+            div.classList.forEach((className) => {
+                console.log(className); // Output: 'highlight', 'bold'
+            });
+        }
+    </script>
+</body>
+</html>
+---------------------------------------------------
+
+
+D. Kesimpulan : 
+1. classList adalah alat yang sangat berguna untuk mengelola kelas CSS pada elemen HTML. 
+2. Dengan metode-metode seperti add, remove, toggle, dan contains, kita dapat dengan mudah mengubah gaya elemen dan memanipulasi kelas CSS tanpa harus langsung mengubah atribut class string. 
+3. Ini memudahkan pengelolaan gaya dinamis dan interaktif dalam aplikasi web.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
