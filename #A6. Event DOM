@@ -1,0 +1,106 @@
+A. Umum :
+1. Event DOM (Document Object Model) : Mekanisme yang memungkinkan interaksi antara pengguna dan elemen-elemen di dalam halaman web.
+--------------------------------------------------------------
+2. Event DOM digunakan untuk mendeteksi dan merespons tindakan atau kejadian tertentu yang terjadi pada elemen-elemen HTML, seperti klik, hover, input, dan banyak lagi.
+--------------------------------------------------------------
+
+
+
+B. Konsep Dasar Event DOM :
+1. Event :
+1a. Event adalah aksi atau kejadian yang terjadi di browser, seperti klik pada tombol, perubahan pada form input, atau pemuatan halaman. Event ini dapat dipicu oleh pengguna atau oleh kode JavaScript.
+--------------------------------------------------------------
+2. Event Listener :
+2a. Event Listener adalah fungsi yang ditetapkan untuk mendengarkan kejadian tertentu dan menjalankan kode ketika kejadian tersebut terjadi. Misalnya, anda dapat menetapkan listener untuk menangani klik pada tombol.
+--------------------------------------------------------------
+3. Event Handler:
+3a. Event Handler adalah fungsi yang dijalankan ketika event tertentu terjadi. Handler ini dapat dipasang langsung pada elemen HTML menggunakan atribut atau menggunakan metode JavaScript seperti addEventListener.
+--------------------------------------------------------------
+
+
+
+C. Menangani Evetn dengan JavaScript :
+1. Menambahkan Event Listener :
+1a. Untuk Menambahkan event listener pada elemen. Anda menggunakan metode `addEventListener` pada elemen target. Metode ini memungkinkan anda untuk menetapkan fungsi handler yang akan dijalankan saat event tertentu terjadi.
+--------------------------------------------------------------
+2. Sintaks : element.addEventListener(eventType, eventHandler) :
+2a. `element` : Elemen DOM yang akan ditambahkan event listener.
+2b. `eventType` : Jenis Event, seperti `'click'`,`'mouseover'`,`'change'`, dll.
+2c. `eventHandler` : Fungsi yang akan dijalankan ketika event terjadi.
+--------------------------------------------------------------
+3. Contoh : 
+<button id="myButton">Click Me!</button>
+  <script>
+    const button = document.getElementById('myButton');
+    
+    function handleClick(event) {
+      alert('Button clicked!');
+    }
+    
+    button.addEventListener('click', handleClick);
+  </script>
+--------------------------------------------------------------
+--------------------------------------------------------------
+2. Event Object :
+2a. Ketika event terjadi, informasi tentang event tersebut disediakan dalam objek event yang diteruskan ke fungsi event handler. Objek ini dapat berisi detail seperti jenis event, elemen target, posisi mouse, dan banyak lagi.
+--------------------------------------------------------------
+3. Contoh :
+  <button id="myButton">Click Me!</button>
+  <script>
+    const button = document.getElementById('myButton');
+    
+    function handleClick(event) {
+      console.log('Event type:', event.type);
+      console.log('Event target:', event.target);
+    }
+    
+    button.addEventListener('click', handleClick);
+  </script>
+--------------------------------------------------------------
+--------------------------------------------------------------
+
+
+
+D. Jenis Event Umum : 
+1. Mouse Event : `click`,`dbclick`,`mousedown`,`mouseover`,`mouseout`,`mousemove`.
+--------------------------------------------------------------
+2. Keyboard Events : `keydown`, `keyup`, `keypress`.
+--------------------------------------------------------------
+3. Form Events : `submit`, `change`, `input`, `focus`, `blur`.
+--------------------------------------------------------------
+4. Window Events : `load` ,`resize` ,`scroll` ,`beforeunload` ,`unload`.
+--------------------------------------------------------------
+
+
+
+E. Event Bubbling dan Capturing :
+1. Event Bubbling : Dalam model bubbling, event dimulai dari elemen target dan "bubbled" ke atas ke elemen-elemen induknya sampai mencapai elemen <html>. Ini adalah mode default.
+--------------------------------------------------------------
+2. Event Capturing : Dalam model capturing, event dimulai dari elemen <html> dan ditangkap secara turun ke elemen target. Untuk menggunakan capturing, Anda harus menambahkan argumen ketiga dengan nilai true pada addEventListener.
+--------------------------------------------------------------
+3. Contoh :
+  <div id="parent">
+    <button id="child">Click Me!</button>
+  </div>
+  <script>
+    const parent = document.getElementById('parent');
+    const child = document.getElementById('child');
+
+    parent.addEventListener('click', () => alert('Parent clicked!'));
+    child.addEventListener('click', () => alert('Child clicked!'), true); // Capturing
+
+    // Jika ingin menggunakan Bubbling
+    // child.addEventListener('click', () => alert('Child clicked!'));
+  </script>
+--------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
