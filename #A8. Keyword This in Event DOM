@@ -1,0 +1,111 @@
+A. Umum :
+1. Keyword `this` dalam konteks event DOM merujuk pada elemen HTML yang memicu event. Artinya, saat sebuah event terjadi dan event handler dijalankan, `this` dalam fungsi event handler akan merujuk pada elemen yang menjadi target event tersebut.
+-----------------------------------------------------------
+
+
+B. Contoh Dasar :
+1. Contoh Penggunaan `this` dalam event DOM :
+ <button id="myButton">Click Me!</button>
+  <script>
+    const button = document.getElementById('myButton');
+    
+    button.addEventListener('click', function() {
+      // 'this' mengacu pada elemen button yang diklik
+      alert(`Button ID: ${this.id}`);
+    });
+  </script>
+-----------------------------------------------------------
+//ketika tombol diklik, alert akan menampilkan ID tombol yang diklik. this.id merujuk pada ID elemen yang menjadi target event, yaitu myButton.
+-----------------------------------------------------------
+
+
+
+
+C. `this` dalam berbagai situasi :
+1. Event Handler reguler function : Ketika menggunakan fungsi reguler (bukan arrow function), `this` mengacu pada elmen HTML yang memicu event. 
+1a. Contoh :
+<button id="myButton">Click Me!</button>
+<script>
+  document.getElementById('myButton').addEventListener('click', function() {
+    console.log(this); // 'this' mengacu pada elemen <button>
+  });
+</script>
+-----------------------------------------------------------
+2. Event Handler dengan Arrow Function : Arrow Function tidak memiliki `this` sendiri. Sebagai gantinya, `this` di arrow function mengacu pada konteks `this` dari lingkungan di mana arrow function didefinisikan. 
+2a. Ini berarti `this` di dalam arrow function tidak akan merujuk pada elemen yang memicu event, melainkan pada konteks luar dari fungsi tersebut.
+2b. Contoh :
+<button id="myButton">Click Me!</button>
+<script>
+  document.getElementById('myButton').addEventListener('click', () => {
+    console.log(this); // 'this' mengacu pada konteks luar, bukan elemen <button>
+  });
+</script>
+-----------------------------------------------------------
+//this di arrow function tidak akan mengacu pada elemen yang diklik, tetapi akan merujuk pada konteks global atau objek yang lebih tinggi.
+-----------------------------------------------------------
+
+
+
+D. Menggunakan `this` untuk akses elemen yang memicu event :
+1. `this` sering digunakan untuk mengakses atau memodifikasi elemen yang memicu event, seperti mendapatkan nilai input, mengubah gaya, atau memanipulasi atribut.
+-----------------------------------------------------------
+2. Contoh mengubaha gaya elemen :
+ <style>
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <button class="myButton">Click Me!</button>
+  <button class="myButton">Click Me Too!</button>
+  <script>
+    document.querySelectorAll('.myButton').forEach(button => {
+      button.addEventListener('click', function() {
+        this.classList.add('highlight'); // Menambahkan kelas 'highlight' pada elemen yang diklik
+      });
+    });
+  </script>
+</body>
+-----------------------------------------------------------
+//Dalam contoh ini, setiap tombol yang diklik akan mendapatkan gaya latar belakang kuning karena kelas `highlight` ditambahkan pada elemen yang diklik menggunakan `this.classList,add(`highlight`)`.
+-----------------------------------------------------------
+
+
+
+
+
+E. Kesimpulan :
+1. this dalam Event Handlers: Mengacu pada elemen HTML yang memicu event
+-----------------------------------------------------------
+2. Fungsi Regular: this mengacu pada elemen yang diklik atau memicu event.
+-----------------------------------------------------------
+3. Arrow Functions: Tidak memiliki this sendiri; menggunakan this dari konteks luar.
+-----------------------------------------------------------
+4. Penggunaan this: Berguna untuk mengakses atau memodifikasi elemen yang memicu event, seperti perubahan gaya atau atribut.
+-----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
