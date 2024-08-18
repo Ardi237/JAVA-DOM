@@ -1,0 +1,143 @@
+A. Inline Event Handlers :
+1. Inline Event Handlers : cara untuk menetapkan event handler langsung dalam atribut HTML. 
+------------------------------------------------------------------------
+2. Ini adalah cara yang paling sederhana untuk menangani event tetapi kurang fleksibel dan dapat membuat kode HTML menjadi tidak rapi.
+------------------------------------------------------------------------
+3. Contoh 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inline Event Example</title>
+</head>
+<body>
+  <button onclick="alert('Button clicked!')">Click Me!</button>
+</body>
+</html>
+------------------------------------------------------------------------
+//penjelasan : dalam contoh ini , fungsi `alert` dipanggil ketika tombol diklik. Event Handler ditetapkan langsung pada elemen HTML menggunakan atribut `onclick`.
+------------------------------------------------------------------------
+
+
+
+B. Event Listeners dengan JavaScript :
+1. Event Listeners adalah cara yang lebih fleksinel dan modern untuk menetapkan event handler.
+------------------------------------------------------------------------
+2. Kita dapat menggunakan metode `addEvenListener` untuk menambahkan event listener pada elemen.
+------------------------------------------------------------------------
+3. Sintaks dasar : element.addEventListener(eventType, eventHandler);
+3a. `element` : Elemen DOM yang akan ditambahkan event listener.
+3b. `eventType` : Jenis event, seperti `'click'`, `'mouseover'`, dll.
+3c. `eventHandler` : Fungsi yang dijalankan ketika event terjadi.
+------------------------------------------------------------------------
+
+
+C. Contoh dasar : 
+1. Contoh :
+  <button id="myButton">Click Me!</button>
+  <script>
+    const button = document.getElementById('myButton');
+    
+    function handleClick() {
+      alert('Button clicked!');
+    }
+    
+    button.addEventListener('click', handleClick);
+  </script>
+------------------------------------------------------------------------
+//penjelasan : 
+* Di sini, event handler `handleClick` ditetapkan menggunakan `addEventListener`. Ini memberikan cara yang lebih bersih dan terpisah untuk menangani event dibandingkan dengan inline event handlers.
+------------------------------------------------------------------------
+
+
+
+D. Event Delegation :
+1. Event Delegation : Teknik di mana anda menetapkan satu event listener pada elemen induk untuk menangani event terjadi pada elemen anaknya. Ini berguna untuk menangani event pada elemen yang ditambahkan secara dinamis.
+------------------------------------------------------------------------
+2. Contoh :
+ <ul id="myList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+  <script>
+    const list = document.getElementById('myList');
+    
+    list.addEventListener('click', function(event) {
+      if (event.target.tagName === 'LI') {
+        alert(`Item clicked: ${event.target.textContent}`);
+      }
+    });
+  </script>
+------------------------------------------------------------------------
+//penjelasan :
+* Dalam contoh ini, satu event listener ditambahkan ke elemen <ul>, dan event handler akan memeriksa apakah elemen yang diklik adalah <li>.
+* Ini memungkinkan Anda untuk menangani klik pada elemen anak tanpa menambahkan event listener pada setiap elemen secara individu.
+------------------------------------------------------------------------
+
+
+
+E. Event Handler dengan fungsi Anonim
+1. Contoh : 
+ <button id="myButton">Click Me!</button>
+  <script>
+    const button = document.getElementById('myButton');
+    
+    button.addEventListener('click', function() {
+      alert('Button clicked!');
+    });
+------------------------------------------------------------------------
+//penjelasan : 
+* Fungsi anonim digunakan sebagai event handler untuk klik tombol. Ini cara adalah cepat dan mudah untuk menangani event tanpa mendefinisikan fungsi terpisah.
+------------------------------------------------------------------------
+
+
+F. Event Handler dengan Arrow Function :
+1. Arrow function adalah cara singkat untuk menulis fungsi dalam javascript. Ini sering digunakan untuk event handler, terutama jika fungsi tersebut sederhana.
+------------------------------------------------------------------------
+2. Contoh :
+ <button id="myButton">Click Me!</button>
+  <script>
+    const button = document.getElementById('myButton');
+    
+    button.addEventListener('click', () => {
+      alert('Button clicked!');
+    });
+  </script>
+------------------------------------------------------------------------
+//penjelasan : 
+Dalam contoh ini, arrow function digunakan sebagai event handler. Ini membuat kode lebih ringkas dan lebih mudah dibaca.
+------------------------------------------------------------------------
+
+
+
+G. Kesimpulan : 
+1. Inline Event Handlers: Sederhana tetapi kurang fleksibel dan dapat membuat kode HTML tidak rapi.
+------------------------------------------------------------------------
+2. Event Listeners: Fleksibel dan modern. Direkomendasikan untuk menangani event.
+------------------------------------------------------------------------
+3. Event Delegation: Berguna untuk menangani event pada elemen yang ditambahkan secara dinamis atau untuk mengurangi jumlah event listener.
+------------------------------------------------------------------------
+4. Event Handler dengan Fungsi Anonim dan Arrow Function: Cara singkat untuk mendefinisikan event handler dalam JavaScript.
+------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
