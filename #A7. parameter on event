@@ -1,0 +1,117 @@
+A. Umum :
+1. `addEventListener` adalah metode javascript yang digunakan untuk menetapkan event handler pada elemen HTML. 
+------------------------------------------------------------
+2. Metode ini memungkinkan kita unutk mendengarkan berbagai jenis event dan meresponsnya dengan menjalankan fungsi yang ditetapkan.
+------------------------------------------------------------
+
+
+
+B. Sintaks & Contoh :
+1. Sintaks : element.addEventListener(eventType, eventHandler, options);
+//penjelasan :
+* `element`: Elemen DOM yang akan ditambahkan event listener.
+* `eventType` : Jenis event yang ingin kita dengarkan, seperti `'click'`,`'mouseover'`,`'keydown'`,dll.
+* `eventHandler`  :Fungsi yang akan dijalankan ketika event terjadi.
+* `options` (opsional) : Opsi tambahan untuk mengkonfigurasi event listener.
+------------------------------------------------------------
+2. Contoh dasar :
+<button id="myButton">Click Me!</button>
+  <script>
+    const button = document.getElementById('myButton');
+    
+    function handleClick() {
+      alert('Button clicked!');
+    }
+    
+    button.addEventListener('click', handleClick);
+  </script>
+------------------------------------------------------------
+//penjelasan : `handleClick` = event handler yang dipanggil ketiak tombol diklik. Metode `addEventListener` menetapkan event handler ini pada elemen tombol.
+------------------------------------------------------------
+
+ 
+
+C. Parameter :
+1. Parameter `eventType` : `eventType` : string yang menunjukan jenis event yang ingin anda dengarkan. Beberapa contoh jenis Event.
+1a. `'click'` : Ketik elemen diklik.
+1b. `'mouseover'`  : Ketika tombol keyboard ditekan.
+1c. `'keydown'` : Ketika tombol keyboard ditekan.
+1d. `'keydown'` : Ketika nilai form berubah.
+1e. `'submit'` : Ketika form disubmit.
+------------------------------------------------------------
+2. Parameter `eventHandler` : fungsi yang dijalankan ketika event terjadi.
+2a. Fungsi ini bisa berupa fungsi biasa atau arrow function. Event handler juga menerima objek event sebagai argumen, yang memberikan informasi tambahan tentang event.
+2b. Contoh dengan objek event :
+  <button id="myButton">Click Me!</button>
+  <script>
+    const button = document.getElementById('myButton');
+    
+    button.addEventListener('click', function(event) {
+      console.log('Event type:', event.type);
+      console.log('Event target:', event.target);
+    });
+  </script>
+------------------------------------------------------------
+3. Parameter `options` : 
+3a. `options` adalah objek opsional yang memungkinkan kita mengonfigurasi perilaku event listener. Opsi ini mencakup:
+* `capture` : Boolean yang menentukan apakah event harus ditangani selama fase capturing (true) atau bubbling (false, default). Jika set ke `true`, event listener akan menangani event selama capturing.
+-----------------------
+* `once` : Boolean yang menentukan apakah event listener harus dijalankan hanya sekali. Jika set ke `true`, event listener akan dihapus secara otomatis setelah dijalankan pertama kali.
+-----------------------
+* `passive` : Boolean  yang menunjukkan bahwa event listener tidak akan memanggil `event.preventDefault()`. Ini berguna untuk meningkatkan performa scrolling.
+------------------------------------------------------------
+4. Contoh :
+<button id="myButton">Click Me!</button>
+  <script>
+    const button = document.getElementById('myButton');
+    
+    button.addEventListener('click', function(event) {
+      alert('Button clicked!');
+    }, { once: true });
+  </script>
+------------------------------------------------------------
+//event listener hanya akan dijalankan sekali dan kemudian dihapus secara otomatis.
+
+
+
+D. Menghapus Event Listener :
+1. Untuk menghapus event listener, Kita dapat menggunakan metode `removeEventListener` dengan parameter yang sama seperti saat menambahkan listener.
+------------------------------------------------------------
+2. Contoh dasar :
+<button id="myButton">Click Me!</button>
+  <script>
+    const button = document.getElementById('myButton');
+    
+    function handleClick() {
+      alert('Button clicked!');
+    }
+    
+    button.addEventListener('click', handleClick);
+    button.removeEventListener('click', handleClick);
+  </script>
+------------------------------------------------------------
+//event listener ditambahkan dan kemudian dihapus sebelum event dapat terjadi.
+
+
+
+E. Kesimpulan :
+1. `addEventListener` memungkinkan anda untuk menetapkan event handler pada elemen DOM dengan cara yang fleksibel dan dapat dikonfigurasi.
+2. Parameter utama termasuk `eventType` (jenis event), `eventHandler` (Fungsi untuk  dijalankan), dan `options` (opsi tambahan).
+3. Kita dapat menghapus event listener menggunakan `removeEventListener` dengan parameter yang sama seperti saat menambahkannya.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
