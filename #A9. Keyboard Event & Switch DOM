@@ -1,0 +1,108 @@
+A. Keybaord Event :
+1. Keyboard events terjadi ketika pengguna berinteraksi dengan keyboard. Ada tiga jenis utama keyboard Events :
+1a. `keydowm` : Terjadi saat tombol ditekan.
+1b. `keypress` : Terjadi saat karakter yang dapat dicetak (printable character) diklik. 
+1c. `keyup` : Terjadi saat tombol dilepas.
+------------------------------------------------------
+
+
+B. Contoh penggunaan keyboard event :
+1. Contoh :
+  <input type="text" id="inputField" placeholder="Type something here">
+  <script>
+    const inputField = document.getElementById('inputField');
+
+    inputField.addEventListener('keydown', (event) => {
+      console.log(`Key pressed: ${event.key}`); // Menampilkan tombol yang ditekan
+    });
+
+    inputField.addEventListener('keyup', (event) => {
+      console.log(`Key released: ${event.key}`); // Menampilkan tombol yang dilepas
+    });
+  </script>
+------------------------------------------------------
+//`event.key` mengembalikan nilai dari tombol yang ditekan atau dilepas.
+------------------------------------------------------
+
+
+
+C. Mengenal Objek dalam event :
+1. Saat event terjadi, objek event (misalnya `event` dalam `event.target`) menyediakan informasi tentang event terjadi. Beberapa properti penting dari objek event termasuk : 
+1a. `event.type` : Tiper event (misalnya `'keydown'`,`'click'`).
+1b. `event.target` : Elemen yang memicu event.
+1c. `event.key` : Nilai tombol yang ditekan (untuk keyboard events).
+1d. `event.code` : Kode fisik tombol (misalnya `'KeyA'`,`'ArrowUp'`)
+------------------------------------------------------
+2. Contoh Menggunakan Objek event :
+  <input type="text" id="inputField" placeholder="Type something here">
+  <script>
+    const inputField = document.getElementById('inputField');
+
+    inputField.addEventListener('keydown', (event) => {
+      console.log(`Event Type: ${event.type}`); // Menampilkan tipe event
+      console.log(`Key Pressed: ${event.key}`); // Menampilkan tombol yang ditekan
+      console.log(`Event Target: ${event.target.tagName}`); // Menampilkan elemen yang memicu event
+    });
+  </script>
+------------------------------------------------------
+
+
+
+D. Penggunaan `switch` dalam event handling :
+1. `switch` statement dalam event handling berguna untuk menangani berbagai tipe event atau nilai yang berbeda secara bersamaan.
+------------------------------------------------------
+2. Kita bisa menggunakan `switch` untuk menangani berbagai tombol keyboard atau berbagai jenis event.
+------------------------------------------------------
+3. Contoh menggunakan `switch` dengan keyboard event : 
+1. contoh :
+  <input type="text" id="inputField" placeholder="Press different keys">
+  <script>
+    const inputField = document.getElementById('inputField');
+
+    inputField.addEventListener('keydown', (event) => {
+      switch (event.key) {
+        case 'ArrowUp':
+          console.log('Up arrow key pressed');
+          break;
+        case 'ArrowDown':
+          console.log('Down arrow key pressed');
+          break;
+        case 'Enter':
+          console.log('Enter key pressed');
+          break;
+        default:
+          console.log(`Key pressed: ${event.key}`);
+          break;
+      }
+    });
+  </script>
+------------------------------------------------------
+//Penjelasan :
+* `switch` : statement digunakan untuk memeriksa nilai `event.key` dan mengeksekusi blok kode yang sesuai berdasarkan tombol yang ditekan.
+* Jika tombol yang ditekan : `ArrowUp`, `ArrowDown`, atau `Enter`, maka akan mencetak pesan sesuai. Untuk tombol lainnya, akan mencetak nilai tombol yang ditekan.
+
+
+
+E. Kesimpulan :
+1. Keyboard Events: keydown, keypress (deprecated), dan keyup untuk menangani interaksi keyboard.
+2. Objek Event: Menyediakan informasi tentang event seperti tipe event, elemen target, nilai tombol yang ditekan, dll.
+3. switch dalam Event Handling: Berguna untuk menangani berbagai kondisi atau nilai dalam event handling dengan cara yang terstruktur.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
