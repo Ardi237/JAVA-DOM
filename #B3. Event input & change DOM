@@ -1,0 +1,89 @@
+A. Umum :
+1. Event `input` dan `change` pada form adalah dua event yang sering digunakan untuk mendeteksi perubahan pada elemen form di HTML, seperti `<input>`, `<textarea>`, dan `<select>`.
+----------------------------------------------
+2. Meskipun keduanya berkaitan dengan perubahan pada elemen form, ada perbedaan signifikan dalam cara dan kapan mereka dipicu.
+----------------------------------------------
+
+
+
+B. Event `input` :
+1. Penjelasan :
+* Event `input` : dipicu setiap kali ada perubahan pada nilai elemen input. Ini berarti bahwa event ini akan dipicu segera setelah pengguna mulai mengetik atau memodifikasi nilai input.
+* Cocok digunakan ketika anda ingin merespons setiap perubahan nilai input secara real-time.
+----------------------------------------------
+2. Contoh Penggunaan Event `input` : 
+2a. Misalnya, kita ingin menampilkan teks yang sedang diketik oleh pengguna secara langsung.
+2b. Contoh :
+<h2>Event Input Example</h2>
+    <label for="textInput">Type something:</label>
+    <input type="text" id="textInput">
+    <p>Live Preview: <span id="livePreview"></span></p>
+
+    <script>
+        const textInput = document.getElementById('textInput');
+        const livePreview = document.getElementById('livePreview');
+
+        textInput.addEventListener('input', function() {
+            livePreview.textContent = textInput.value;
+        });
+    </script>
+----------------------------------------------
+//penjelasan :
+* Setiap kali pengguna mengetik sesuatu di dalam input field, event `input` dipicu, dan teks yang diketik langsung ditampilkan dalam elemen `<span>` dengan id `livepreview`.
+----------------------------------------------
+----------------------------------------------
+
+
+C. Event `change` :
+1. Penjelasan :
+1a. Event `change` dipicu ketika pengguna menyelesaikan pengeditan pada elemen form dan mengalihkan fokus dari elemen tersebut (misalnya, setelah menekan tombol "tab" atau mengklik di luar input field). Pada elemen seperti `<select>`, event ini dipicu segera setelah pengguna memilih opsi baru.
+1b. Cocok digunakan ketika anda ingin merespons perubahan setelah penggunaan selesai melakukan perubahan, bukan saat mereka sedang mengetik.
+----------------------------------------------
+2. Contoh penggunaan event `change` : 
+2a. Misalnya, kita ingin menampilkan pesan setelah pengguna memilih sebuah opsi dari dropdown.
+2b. Contoh  : <h2>Event Change Example</h2>
+    <label for="colorSelect">Choose a color:</label>
+    <select id="colorSelect">
+        <option value="">Select a color</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+    </select>
+    <p id="selectedColor">You haven't selected a color yet.</p>
+
+    <script>
+        const colorSelect = document.getElementById('colorSelect');
+        const selectedColor = document.getElementById('selectedColor');
+
+        colorSelect.addEventListener('change', function() {
+            selectedColor.textContent = `You selected: ${colorSelect.value}`;
+        });
+    </script>
+----------------------------------------------
+
+
+
+D. Perbandingan event `input` dan `change` : 
+1. Kapan dipicu :
+* `input` : Dipicu setiap kali nilai elemen input berubah (misalnya, saat mengetik).
+* `change` : Dipicu setelah pengguna menyelesaikan perubahan dan mengalihkan fokus dari elemen input.
+----------------------------------------------
+2. Penggunaan Umum : 
+* `input` : Cocok untuk tugas yang membutuhkan pemantauan nilai input secara real-time.
+* `change` : Cocok untuk tugas yang hanya perlu diperbarui setelah perubahan selesai, seperti validasi form atau menampilkan hasil setelah pilihan dibuat.
+
+
+
+E. Kesimpulan :
+* Gunakan input jika Anda perlu memantau perubahan secara real-time, seperti live preview atau validasi langsung saat pengguna mengetik.
+* Gunakan change jika Anda hanya ingin bereaksi setelah perubahan selesai, seperti ketika pengguna memilih opsi dari dropdown atau mengisi form dan mengalihkan fokus.
+
+
+
+
+
+
+
+
+
+
