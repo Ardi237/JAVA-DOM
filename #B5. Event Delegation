@@ -1,0 +1,60 @@
+A. Umum :
+1. Event Delegation : Teknik di mana kita menambahkan event listener ke elemen induk (parent) daripada ke setiap elemen anak (child) secara individual. 
+-------------------------------------------------
+2. Teknik ini memanfaatkan sifat `event bubbling` di mana event yang terjadi pada elemen anak akan menggelembung ke elemen induk. 
+-------------------------------------------------
+3. Dengan demikian, kita bisa menangani event banyak elemen anak dengan satu event listener yang ditempatkan pada elemen induknya
+-------------------------------------------------
+
+
+
+B. Mengapa menggunakan event delegation :
+1. Efisiensi : Daripada menambahkan event listener ke setiap elemen anak, kita hanya menambahkan satu event listener ke elemen induk. Ini bisa menghemat memori dan meningkatkan kinerja terutama pada aplikasi dengan banyak elemen.
+-------------------------------------------------
+2. Dinamika DOM : Event Delegation sangat berguna ketika elemen anak mungkin ditambahkan atau dihapus secara dinamis. Kita tidak perlu menambahkan atau menghapus event listener setiap kali DOM berubah.
+-------------------------------------------------
+
+
+
+C. Contoh penggunaan Event Delegation :
+1. Misalnya kita memiliki daftar elemen `<li>` yang ditambahkan ke dalam sebuah `<ul>`. daripada menambahkan satu event listener ke `<ul>` dan menangani semua klik dari elemen `<li>` di dalamnya.
+-------------------------------------------------
+2. Contoh dasar :
+<ul id="parentList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <!-- Items lainnya mungkin ditambahkan secara dinamis -->
+    </ul>
+
+    <script>
+        const parentList = document.getElementById('parentList');
+
+        parentList.addEventListener('click', function(event) {
+            if (event.target.tagName === 'LI') {
+                alert(`You clicked on ${event.target.textContent}`);
+            }
+        });
+    </script>
+-------------------------------------------------
+//penjelasan :
+* `event.target` : Di dalam event listener, `event.target` mengacu pada elemen asli yang memicu event. Dalam kasus ini, elemen `<li>` yang di klik.
+* `event.target.tagName === 'LI'` : Kondisi ini memerika apakah yang diklik adalah `<li>`. Jika benar, maka kode di dalam if akan dijalankan.
+-------------------------------------------------
+
+
+
+D. Kapan menggunakan event delegation : 
+* Ketika elemen anak (child elements) sering berubah. Jika kita menambahkan atau menghapus elemen dalam sebuah container, menggunakan event delegation memastikan anda tidak perlu terus-menerus menambahkan atau menghapus event listener.
+-------------------------------------------------
+* Untuk Menangani banyak elemen. Jika kita memiliki banyak elemen yang membutuhkan event listener, event delegation adalah cara yang efisien untuk mengatasinya. 
+-------------------------------------------------
+
+
+
+E. Kesimpulan : 
+1. Event Delegation : Teknik yang kuat dan efisien untuk menangani event di dalam DOM. 
+2. Dengan menabahkan event listener ke elemen induk, kita dapat mengurangi jumlah event listener yang diperlukan dan membuat kode lebih muda di-maintain, terutama dalam apliaksi yang dinamis.
+
+
+
