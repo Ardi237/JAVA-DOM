@@ -1,0 +1,103 @@
+A. Umum :
+1. `event.preventDefault()` : sebuah metode dalam JavaScript yang digunakan untuk mencegah aksi default dari suatu event dalam DOM (Document Object Model).
+----------------------------------------------------
+2. Aksi default adalah tindakan bawaan yang dilakukan oleh browser ketika sebuah event terjadi, seperti mengirimkan form saat tombol submit ditekan, mengikuti link ketika elemen `<a>` diklik, atau membuka konteks menu pada klik kanan.
+----------------------------------------------------
+
+
+
+B. Contoh Penggunaan `event.preventDefault()` : 
+1. Mencegah Pengiriminform otomatis :
+1a. Misalnya, saat anda menekan tombol submit dalam sebuah form, browser secara otomatis dan mengirimkan data form ke server. 
+1b. Namun, jika kita ingin melakukan validasi terlebih dahulu sebelum mengirim data, kita dapat menggunakan `event.preventDefault()` untuk mencegah pengiriman form tersebut.`  
+----------------------------------------------------
+2. Contoh dasar :
+<form id="myForm">
+  <input type="text" name="username" placeholder="Enter username">
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  const form = document.getElementById('myForm');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();  // Mencegah pengiriman form
+    alert('Form tidak dikirimkan!');
+    // Lakukan validasi atau operasi lain di sini
+  });
+</script>
+----------------------------------------------------
+//penjelasan : 
+* ketika tombol submit diklik, `event.preventDefault()` mencegah form dari pengiriman otomatis, dan sebagai gantinya menampilkan pesan peringatan.
+----------------------------------------------------
+----------------------------------------------------
+2. Mencegah link untuk mengikuti URL : 
+2a. Ketika kita mengklik sebuah link, browser secara otomatis akan mengikuti URL
+yang ditentukan dalam atribut `href`. 
+2b. Dengan `event.preventDefault()`, anda bisa mencegah tindakan ini, mungkin untuk menampilkan sebuah model atau menjalankan fungsi JavaScript lain.
+2c. Contoh dasar :
+<a href="https://www.example.com" id="myLink">Go to Example</a>
+
+<script>
+  const link = document.getElementById('myLink');
+
+  link.addEventListener('click', function(event) {
+    event.preventDefault();  // Mencegah browser mengikuti link
+    alert('Anda mengklik link, tapi tidak pergi ke Example.com!');
+  });
+</script>
+----------------------------------------------------
+//penjelasan :
+* Ketika link diklik, browser tidak akan mengarahkan pengguna ke `https://www.example.com`, melainkan hanya menampilkan pesan peringatan.
+----------------------------------------------------
+----------------------------------------------------
+3. Mencegah aksi default pada konteks menu : 
+3a. Kita bisa mencegah konteks menu (klik kanan) default untuk muncul ketika pengguna mengklik kanan pada elemen tertentu.
+3b. Contoh dasar :
+<div id="noContextMenu">Klik kanan di sini!</div>
+
+<script>
+  const div = document.getElementById('noContextMenu');
+
+  div.addEventListener('contextmenu', function(event) {
+    event.preventDefault();  // Mencegah munculnya konteks menu
+    alert('Konteks menu dinonaktifkan di area ini!');
+  });
+</script>
+----------------------------------------------------
+//penjelasan :
+* Ketika pengguna mengklik kanan di dlama elemen `div`, konteks menu default tidak akan muncul.
+----------------------------------------------------
+----------------------------------------------------
+
+
+
+C. Kapan Menggunakan `event.preventDefault()` :
+1. Kita harus menggunakan `event.preventDefault()` ketika anda ingin :
+1a. Menangani form secara manual : Misalnya, validasi data sebelum mengirimkan form.
+1b. Mengganti  fungsi default link atau tombol : Misalnya, mengarahkan pengguna ke halaman lain atau menampilkan modal saat link atau tombol di klik.
+1c. Menghentikan aksi default pada event : Misalnya, mencegah munculnya konteks menu pada klik kanan, atau mencegah drag-and-drop pada elemen.
+----------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
