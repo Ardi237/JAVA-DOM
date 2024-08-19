@@ -1,0 +1,80 @@
+A. Umum : 
+----------------------------------------------------------------------------------
+1. Contoh Dasar : 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/destination">
+      <input type="text" id="input" />
+      <button>CLick</button>
+    </form>
+    <h1>Notes</h1>
+    <ul id="notes">
+
+    </ul>
+    <script>
+      const form = document.querySelector("form");
+      const input = document.querySelector("#input");
+      const note = document.querySelector("#notes");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const newElement = document.createElement('li');
+        newElement.innerText = input.value;
+        note.append(newElement);    
+        input.value = '';
+      });
+    </script>
+  </body>
+</html>
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+//penjelasan
+1. Form : Terdapat form berisi input type dengan id : input, dan sebuah button. 
+---------------------------------------------------------------------------------
+2. Juga terdapat sebuah unordered list sebagai parent untuk elemen inputan.
+---------------------------------------------------------------------------------
+3. Script : terdapat 3 deklarasi variabel javascript yaitu : form, input, note.
+---------------------------------------------------------------------------------
+4. Form : Berisi action / alamat tujuan setelah proses form dijalankan.
+---------------------------------------------------------------------------------
+5. Input : Berisi value dari tag elemen input.
+---------------------------------------------------------------------------------
+6. Note : Tag element ul.
+---------------------------------------------------------------------------------
+7.   form.addEventListener("submit", function (e) {
+
+}); // contoh pemanfaaatan eventlistener dengan menggunakan form sebagai elemen , submit sebagai eventType dan sebuah function event didalamnya
+---------------------------------------------------------------------------------
+8. e.preventDefault(); : metode event yang digunakan untuk menghapus fungsi default suatu elemen/atribut.
+---------------------------------------------------------------------------------
+9. const newElement = document.createElement('li'); : membuat elemen li dan menyimpan nilai yang dihasilkan di newElement.
+---------------------------------------------------------------------------------
+10.  note.append(newElement); : menggunakan note (ul) sebagai parent elemen, nilai newElement akan dimuat didalam note menggunakan append method.
+---------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
