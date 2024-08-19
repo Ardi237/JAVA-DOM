@@ -1,0 +1,76 @@
+A. Event Bubbling : 
+1. Event bubbling adalah konsep dalam model event DOM di mana ketika suatu event terjadi pada elemen, event tersebut akan mencoba untuk ditangani pada elemen itu sendiri, kemudian `menggelembung` ke elemen induknya (parent), dan seterusnya hingga mencapai root dari DOM tree (biasanya elemen `document`). 
+------------------------------------------------
+2. Misalnya, jika kita mengklik sebuah tombol di dalam div, event klik pertama-tama akan dipicu pada tombol itu sendiri, lalu pada elemen div yang mengandung tombol, dan kemudian pada elemen induk di atasnya, hingga akhirnya mencapai elemen `document`.
+------------------------------------------------
+
+
+
+B. Contoh Event Bubbling : 
+1. Contoh dasar : 
+ <div id="parentDiv" style="padding: 20px; background-color: lightblue;">
+        Parent Div
+        <button id="childButton">Click Me!</button>
+    </div>
+
+    <script>
+        const parentDiv = document.getElementById('parentDiv');
+        const childButton = document.getElementById('childButton');
+
+        parentDiv.addEventListener('click', () => {
+            alert('Parent Div clicked!');
+        });
+
+        childButton.addEventListener('click', () => {
+            alert('Button clicked!');
+        });
+    </script>
+------------------------------------------------
+//penjelasan :
+* Saat kita mengklik tombol "Click Me!", event `click` pada tombol akan ditangani pertama kali, dan kemudian `menggelembung` ke elemen induknya   (`div`),  menyebabkan alert dari `parentDiv` juga ditampilkan.
+------------------------------------------------
+
+
+
+C. Penggunaan `stopPropagation()` :
+1. `stopPropagation()` : Metode yang digunakan untuk menghentikan event bubbling. Jika kita tidak ingin event tersebut menggelembung ke elemen induk, kita bisa memanggil `stopPropagation()` pada event tersebut.
+------------------------------------------------
+2. Contoh penggunaan `stopPropagation()` :
+2a. Kita bisa memodifikasi contoh di atas untuk mencegah bubbling ketika tombol diklik.
+2b. Contoh :
+ <div id="parentDiv" style="padding: 20px; background-color: lightblue;">
+        Parent Div
+        <button id="childButton">Click Me!</button>
+    </div>
+
+    <script>
+        const parentDiv = document.getElementById('parentDiv');
+        const childButton = document.getElementById('childButton');
+
+        parentDiv.addEventListener('click', () => {
+            alert('Parent Div clicked!');
+        });
+
+        childButton.addEventListener('click', (event) => {
+            event.stopPropagation(); // Mencegah bubbling
+            alert('Button clicked!');
+        });
+    </script>
+------------------------------------------------
+//Penjelasan : 
+* Sekarang, ketika kita mengklik tombol, hanya alert dari `childButton` yang muncul. `stopPropagation` mencegah event `click` untuk menggelembung ke `parentDiv`.
+------------------------------------------------
+
+
+D. Kesimpulan :
+1. Event Bubbling : Memungkinkan event ditangani pada elemen yang terpicu dan kemudian pada elemen-elemen induknya secara bertingkat.
+------------------------------------------------
+2. `stopPropagation()` : Digunakan untuk menghentikan bubbling tersebut sehingga event tidak menggelembung ke elemen induk. Ini berguna ketika kita ingin memastikan bahwa event hanya ditangani pada elemen tertentu saja. 
+------------------------------------------------
+
+
+
+
+
+
+
